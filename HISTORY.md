@@ -16,3 +16,5 @@
 16. Integración de la persistencia de datos en cada repositorio de entidad con "useFactory". Si el config.dataType === 'FS' se va a usar el FsRepository, sino el typeOrmRepository (base de datos)
 17. Comprobación de creación de la carpeta definida en FS_FOLDER al ejecutar "npm start".
 18. Commit de la integración de persistencia en ficheros.
+19. Sincronizar DB sólo cuando DATA_TYPE es "DB". En este caso debería crear el fichero \*.sqlite
+20. Creación de un test para comprobar que las entidades se guardan bien en la DB: npx jest db-persistence. Se usa la DB test-database.sqlite para comprobar los datos.
