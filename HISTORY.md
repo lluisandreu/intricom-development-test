@@ -8,3 +8,5 @@
 8. Commit del sistema de configuración
 9. Instalación de TypeORM y creación de las entidades Client, Hotel y HotelBooking. Uso de validación con "class-validator". Se usa TypeORM, un ORM de uso generalizado, ya que tiene un buen tipeado de las entidades y se combina muy bien con Nest.
 10. Commit de las entidades.
+11. Creación de una inteface global Repository con los métodos que vamos a usar para cada entidad (para no duplicar código). Creación de los repositorios de cada entidad. No usamos directamente un servicio TypeORM porque vamos a usar dos tipos de guardado de datos: DB y FS.
+12. Commit de los repositorios.
