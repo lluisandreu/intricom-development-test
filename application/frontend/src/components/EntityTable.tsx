@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { api } from '../api';
 
 export interface Column<T> {
   key: keyof T;
   label: string;
+  render?: (item: T) => ReactNode;
 }
 
 interface EntityTableProps<T extends { id: number }> {
   resource: string;
   columns: Column<T>[];
+  refreshToken?: number;
 }
 
-export function EntityTable<T extends { id: number }>({ resource, columns }: EntityTableProps<T>) {
+export function EntityTable<T extends { id: number }>({ resource, columns, refreshToken }: EntityTableProps<T>) {
   const [items, setItems] = useState<T[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +39,7 @@ export function EntityTable<T extends { id: number }>({ resource, columns }: Ent
     return () => {
       cancelled = true;
     };
-  }, [resource]);
+  }, [resource, refreshToken]);
 
   return (
     <div className="card bg-base-100 shadow-sm">
@@ -65,7 +68,7 @@ export function EntityTable<T extends { id: number }>({ resource, columns }: Ent
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     {columns.map((c) => (
-                      <td key={String(c.key)}>{String(item[c.key])}</td>
+                      <td key={String(c.key)}>{c.render ? c.render(item) : String(item[c.key])}</td>
                     ))}
                   </tr>
                 ))}

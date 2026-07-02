@@ -32,3 +32,5 @@
 29. Se crean las páginas de cada entidad, vamos a crear un componente global EntityTable para no repetir código. Este componente se usará en cada página de entidad.
 30. Tenemos problemas de CORS. Se añade app.enableCors() en maint.s en Nest.
 31. Commit de las páginas de entidades con el listado (tabla)
+32. Se usa el componente "drawer" de DaisyUI para generar el formulario de creación de entidad. Para ello se crea el componente global CreateEntity.tsx que se encargará de pintar los campos de cada entidad.
+33. Para elegir el cliente y hotel en el formulario de creación de "Hotel bookings" se hace una consulta a la DB para no tener que recordar el ID de cada entidad.
