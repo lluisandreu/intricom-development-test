@@ -36,3 +36,4 @@
 33. Para elegir el cliente y hotel en el formulario de creación de "Hotel bookings" se hace una consulta a la DB para no tener que recordar el ID de cada entidad.
 34. Creación del componente global "UpdateEntity.tsx" que va a servir para actualizar las entidades. Se usará el componente "drawer" igual que en la creación.
 35. Empezamos pruebas en DB y FS. FS no guarda el createdDate. Lo arreglamos
+36. Redactamos el README
