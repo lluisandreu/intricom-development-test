@@ -1,0 +1,155 @@
+{
+  "info": {
+    "name": "Intricom Test Exercise - Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "hotelId",
+      "value": "1"
+    },
+    {
+      "key": "clientId",
+      "value": "1"
+    },
+    {
+      "key": "hotelBookingId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Hotels",
+      "item": [
+        {
+          "name": "List hotels",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotels"
+          }
+        },
+        {
+          "name": "Get hotel by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotels/{{hotelId}}"
+          }
+        },
+        {
+          "name": "Create hotel",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hotel Sol\",\n  \"address\": \"Beach Rd 1\"\n}"
+            },
+            "url": "{{baseUrl}}/hotels"
+          }
+        },
+        {
+          "name": "Update hotel",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hotel Sol Renamed\"\n}"
+            },
+            "url": "{{baseUrl}}/hotels/{{hotelId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "List clients",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients"
+          }
+        },
+        {
+          "name": "Get client by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients/{{clientId}}"
+          }
+        },
+        {
+          "name": "Create client",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana\",\n  \"address\": \"Main St 2\",\n  \"phone\": \"+34600000001\"\n}"
+            },
+            "url": "{{baseUrl}}/clients"
+          }
+        },
+        {
+          "name": "Update client",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+34600000002\"\n}"
+            },
+            "url": "{{baseUrl}}/clients/{{clientId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotel Bookings",
+      "item": [
+        {
+          "name": "List hotel bookings",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotel-bookings"
+          }
+        },
+        {
+          "name": "Get hotel booking by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotel-bookings/{{hotelBookingId}}"
+          }
+        },
+        {
+          "name": "Create hotel booking",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelId\": {{hotelId}},\n  \"clientId\": {{clientId}},\n  \"name\": \"Booking A\",\n  \"address\": \"Third St 3\"\n}"
+            },
+            "url": "{{baseUrl}}/hotel-bookings"
+          }
+        },
+        {
+          "name": "Update hotel booking",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Booking A Renamed\"\n}"
+            },
+            "url": "{{baseUrl}}/hotel-bookings/{{hotelBookingId}}"
+          }
+        }
+      ]
+    }
+  ]
+}

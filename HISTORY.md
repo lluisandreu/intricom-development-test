@@ -18,3 +18,8 @@
 18. Commit de la integración de persistencia en ficheros.
 19. Sincronizar DB sólo cuando DATA_TYPE es "DB". En este caso debería crear el fichero \*.sqlite
 20. Creación de un test para comprobar que las entidades se guardan bien en la DB: npx jest db-persistence. Se usa la DB test-database.sqlite para comprobar los datos.
+21. Creación de las rutas REST de cada entidad para listar, obtener por ID y actualizar, a través de los controladores. Generación de los DTO de cada entidad para evitar errores de tipo de datos y sólo actualizar campos específicos. Las rutas son:
+    - GET /hotels, GET /hotels/:id, POST /hotels, PATCH /hotels/:id
+    - GET /clients, GET /clients/:id, POST /clients, PATCH /clients/:id
+    - GET /hotel-bookings, GET /hotel-bookings/:id, POST /hotel-bookings, PATCH /hotel-bookings/:id
+22. Generación de un archivo Postman para probar todas las rutas de una manera humana.
