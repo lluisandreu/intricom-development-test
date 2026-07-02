@@ -10,3 +10,9 @@
 10. Commit de las entidades.
 11. Creación de una inteface global Repository con los métodos que vamos a usar para cada entidad (para no duplicar código). Creación de los repositorios de cada entidad. No usamos directamente un servicio TypeORM porque vamos a usar dos tipos de guardado de datos: DB y FS.
 12. Commit de los repositorios.
+13. Desarrollo de la persistencia en ficheros (FileSystem) con "fs", de node. Creación de los métodos consultar las entidades y actualizarlas. Creación de un test jest para verificar que los métodos funcionan: npx jest fs-repository.
+14. Conexión con SQLite. TypeORM no soporta sqlite y hay que instalar "better-sqlite3": https://typeorm.io/docs/releases/1.0/release-notes/. Se instala ahora porque al querer compilar el código surge el error de que falta el "TypeOrmModule.forRoot" en app.module.ts.
+15. Creación de un test que comprueba que los ficheros se crean al generar las entidades: fs-persistence.integration.spec.ts: npm test -- fs-persistence
+16. Integración de la persistencia de datos en cada repositorio de entidad con "useFactory". Si el config.dataType === 'FS' se va a usar el FsRepository, sino el typeOrmRepository (base de datos)
+17. Comprobación de creación de la carpeta definida en FS_FOLDER al ejecutar "npm start".
+18. Commit de la integración de persistencia en ficheros.
