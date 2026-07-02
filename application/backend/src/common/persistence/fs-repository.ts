@@ -40,7 +40,7 @@ export class FsRepository<T extends { id: number }> implements Repository<T> {
   async create(data: Partial<T>): Promise<T> {
     const metadata = await this.readMetadata();
     const id = metadata.LAST_INDEX + 1;
-    const record = { ...data, id } as T;
+    const record = { ...data, id, createdDate: new Date() } as unknown as T;
 
     await writeFile(this.recordPath(id), JSON.stringify(record, null, 2));
     await this.writeMetadata({

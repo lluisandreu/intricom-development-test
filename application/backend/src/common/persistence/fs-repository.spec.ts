@@ -6,6 +6,7 @@ import { FsRepository } from './fs-repository';
 interface TestEntity {
   id: number;
   name: string;
+  createdDate: Date;
 }
 
 describe('FsRepository', () => {
@@ -59,7 +60,7 @@ describe('FsRepository', () => {
 
     const found = await repository.findById(created.id);
 
-    expect(found).toEqual(created);
+    expect(found).toEqual({ ...created, createdDate: created.createdDate.toISOString() });
   });
 
   it('returns null when findById does not match any record', async () => {
@@ -86,7 +87,11 @@ describe('FsRepository', () => {
 
     const updated = await repository.update(created.id, { name: 'Hotel A renamed' });
 
-    expect(updated).toEqual({ id: created.id, name: 'Hotel A renamed' });
+    expect(updated).toEqual({
+      id: created.id,
+      name: 'Hotel A renamed',
+      createdDate: created.createdDate.toISOString(),
+    });
   });
 
   it('returns null when updating a non-existent id', async () => {

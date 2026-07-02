@@ -52,16 +52,19 @@ describe('FsRepository (all entities)', () => {
     const storedHotel = JSON.parse(
       readFileSync(join(fsFolder, 'Hotel', `${hotel.id}.json`), 'utf-8'),
     );
-    expect(storedHotel).toEqual(hotel);
+    expect(storedHotel).toEqual({ ...hotel, createdDate: hotel.createdDate.toISOString() });
 
     const storedClient = JSON.parse(
       readFileSync(join(fsFolder, 'Client', `${client.id}.json`), 'utf-8'),
     );
-    expect(storedClient).toEqual(client);
+    expect(storedClient).toEqual({ ...client, createdDate: client.createdDate.toISOString() });
 
     const storedHotelBooking = JSON.parse(
       readFileSync(join(fsFolder, 'HotelBooking', `${hotelBooking.id}.json`), 'utf-8'),
     );
-    expect(storedHotelBooking).toEqual(hotelBooking);
+    expect(storedHotelBooking).toEqual({
+      ...hotelBooking,
+      createdDate: hotelBooking.createdDate.toISOString(),
+    });
   });
 });
