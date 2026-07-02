@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { EntityTable } from '../../components/EntityTable';
 import { CreateEntity } from '../../components/CreateEntity';
+import { UpdateEntity } from '../../components/UpdateEntity';
 import { BackButton } from '../../components/BackButton';
 import { api } from '../../api';
 import type { Client, Hotel, HotelBooking } from '../../types';
@@ -54,6 +55,15 @@ function HotelBookingsPage() {
           },
           { key: 'createdDate', label: 'Created' },
         ]}
+        actions={(item) => (
+          <UpdateEntity<HotelBooking>
+            resource="hotel-bookings"
+            title="Hotel Booking"
+            fields={fields}
+            item={item}
+            onUpdated={() => setRefreshToken((t) => t + 1)}
+          />
+        )}
       />
     </section>
   );

@@ -12,9 +12,10 @@ interface EntityTableProps<T extends { id: number }> {
   resource: string;
   columns: Column<T>[];
   refreshToken?: number;
+  actions?: (item: T) => ReactNode;
 }
 
-export function EntityTable<T extends { id: number }>({ resource, columns, refreshToken }: EntityTableProps<T>) {
+export function EntityTable<T extends { id: number }>({ resource, columns, refreshToken, actions }: EntityTableProps<T>) {
   const [items, setItems] = useState<T[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -61,6 +62,7 @@ export function EntityTable<T extends { id: number }>({ resource, columns, refre
                   {columns.map((c) => (
                     <th key={String(c.key)}>{c.label}</th>
                   ))}
+                  {actions && <th></th>}
                 </tr>
               </thead>
               <tbody>
@@ -70,11 +72,12 @@ export function EntityTable<T extends { id: number }>({ resource, columns, refre
                     {columns.map((c) => (
                       <td key={String(c.key)}>{c.render ? c.render(item) : String(item[c.key])}</td>
                     ))}
+                    {actions && <td>{actions(item)}</td>}
                   </tr>
                 ))}
                 {items.length === 0 && (
                   <tr>
-                    <td colSpan={columns.length + 1} className="text-center opacity-60">
+                    <td colSpan={columns.length + 1 + (actions ? 1 : 0)} className="text-center opacity-60">
                       No records yet.
                     </td>
                   </tr>

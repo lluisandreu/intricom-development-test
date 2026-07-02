@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { EntityTable } from '../../components/EntityTable';
 import { CreateEntity } from '../../components/CreateEntity';
+import { UpdateEntity } from '../../components/UpdateEntity';
 import { BackButton } from '../../components/BackButton';
 import type { Client } from '../../types';
 
@@ -36,6 +37,15 @@ function ClientsPage() {
           { key: 'phone', label: 'Phone' },
           { key: 'createdDate', label: 'Created' },
         ]}
+        actions={(item) => (
+          <UpdateEntity<Client>
+            resource="clients"
+            title="Client"
+            fields={fields}
+            item={item}
+            onUpdated={() => setRefreshToken((t) => t + 1)}
+          />
+        )}
       />
     </section>
   );
