@@ -28,3 +28,7 @@
 25. Creación de los tipados de cada entidad: Client, Hotel, HotelBooking
 26. Creación de una landing donde el usuario puede elegir qué entidad consultar.
 27. Se hace un commit de los primeros cambios del front.
+28. Usaremos react-router-dom para las rutas en React. Podríamos usar un sistema de hash propio, pero para no perder tiempo este paquete soluciona la navegación si disponemos de poco tiempo.
+29. Se crean las páginas de cada entidad, vamos a crear un componente global EntityTable para no repetir código. Este componente se usará en cada página de entidad.
+30. Tenemos problemas de CORS. Se añade app.enableCors() en maint.s en Nest.
+31. Commit de las páginas de entidades con el listado (tabla)
