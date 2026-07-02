@@ -26,3 +26,5 @@
 23. Empezamos a desarrollar la interfície frontal de la aplicación, con React + Tailwind. Se va a usar https://daisyui.com/ para no tener que maquetar los elementos básicos (formularios, botones, tablas, etc). Con esta librería ganamos tiempo en el desarrollo y seremos capaces de desarrollar la UI en la hora que nos queda.
 24. Creación de un método global para hacer las consultas a la api. Se encuentra en el archivo api.ts.
 25. Creación de los tipados de cada entidad: Client, Hotel, HotelBooking
+26. Creación de una landing donde el usuario puede elegir qué entidad consultar.
+27. Se hace un commit de los primeros cambios del front.
