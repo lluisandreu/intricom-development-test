@@ -23,3 +23,6 @@
     - GET /clients, GET /clients/:id, POST /clients, PATCH /clients/:id
     - GET /hotel-bookings, GET /hotel-bookings/:id, POST /hotel-bookings, PATCH /hotel-bookings/:id
 22. Generación de un archivo Postman para probar todas las rutas de una manera humana.
+23. Empezamos a desarrollar la interfície frontal de la aplicación, con React + Tailwind. Se va a usar https://daisyui.com/ para no tener que maquetar los elementos básicos (formularios, botones, tablas, etc). Con esta librería ganamos tiempo en el desarrollo y seremos capaces de desarrollar la UI en la hora que nos queda.
+24. Creación de un método global para hacer las consultas a la api. Se encuentra en el archivo api.ts.
+25. Creación de los tipados de cada entidad: Client, Hotel, HotelBooking
